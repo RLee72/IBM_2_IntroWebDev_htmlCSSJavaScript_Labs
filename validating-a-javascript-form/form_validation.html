@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<!--
+    Form:
+    - accepts the user's name
+    - email address
+
+    Main Lesson: Using Scripts
+-->
+
+<html>
+    <head>
+        <title>Contact Details</title>
+        <!-- embed code (JavaScript) into HTML page -->
+        <!-- can contain scripting elements or exteral script file -->
+
+        <!-- JavaScript Function-->
+        <!-- create function checkdata to validate data in form-->
+    
+
+        <script type="application/javascript">
+            function checkdata() {
+                /* to vlaidate data, access contents of input elements in form */
+                /* you can use method: document.getElementByID("name"); */
+
+                //Create references to the input elements we wish to validate
+                var username = document.getElementById("name");
+                var emailid = document.getElementById("email");
+
+                /* access and check data */
+                /* when reference to elements are stored in the variables
+                    the vales of elements can be retrieved using the value attribute.
+                    
+                    If username is the variable that contains the input element's reference
+                    then its value can be accessed using username.value 
+                    
+                    e.g
+                    to chek if value is blank use statement: username.value == "" 
+                    where"" indicated empty string*/
+                
+                /* Create set of statements based on a condition */
+                
+                
+                //Check if username field is empty
+                if(username.value == "") {
+                    alert("please enter the name");
+                    username.focus();
+                    return false;
+                }
+
+                //Check if email field is empty
+                if (emailid.value == "") {
+                    alert("please enter the email");
+                    emailid.focus();
+                    return false;
+                }
+
+                //If all is well return true
+                return true;
+
+            }
+        </script>
+    </head>
+
+    <body>
+        <h2>Enter your Contact Details:</h2>
+        <br/>
+
+        <!-- when form is submitted the checkout function result is returned -->
+        <!-- onsubmit="return checkdata() ensures that checkdata() function is invoked everytime form is submitted-->
+        <form id="form1" onsubmit="return checkdata()">
+            <!--Name section-->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <br>
+            <br>
+            <!--Email section-->
+            <label for="email">Email Address:</label>
+            <input type="text" id="email" name="email">
+            <br>
+            <br>
+            <!--Submit & Reset Button-->
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </body>
+</html>
